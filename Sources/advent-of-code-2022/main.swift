@@ -30,7 +30,10 @@ struct AdventOfCode: ParsableCommand {
 			throw RuntimeError("No solver implemented for day \(day).")
 		}
 		let input = try String(contentsOf: inputUrl)
-		print(try solver.printSolution(for: input))
+		let solution = try solver.printSolution(for: input)
+		print("Day \(day) solutions:")
+		print(solution)
+		print()
 	}
 }
 

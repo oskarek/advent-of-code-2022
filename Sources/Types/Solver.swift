@@ -41,10 +41,9 @@ public struct Solver {
 	public func printSolution(for input: String) throws -> String {
 		let (part1, part2) = try _printSolutions(input)
 		return """
-		a)
+		1)
 		\(part1)
-
-		b)
+		2)
 		\(part2)
 		"""
 	}
