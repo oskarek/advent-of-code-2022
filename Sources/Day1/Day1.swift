@@ -25,6 +25,9 @@ public let solver = Solver(
 	parser: calorieGroupsParser,
 	solve: { calorieGroups in
 		let sums = calorieGroups.map(\.sum).sorted(by: >)
-		return (sums[0], sums.prefix(3).sum)
+		return (
+			part1: sums[0],
+			part2: sums.prefix(3).sum
+		)
 	}
 )
