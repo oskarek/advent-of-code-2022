@@ -8,3 +8,4 @@ My solutions to the problems from [Advent of Code
 ## Links to the solutions
 
 - [Day 1](Sources/Day1)
+- [Day 2](Sources/Day2)

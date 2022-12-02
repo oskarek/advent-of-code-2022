@@ -7,6 +7,7 @@ let package = Package(
 	platforms: [.macOS(.v13)],
 	products: [
 		.library(name: "Day1", targets: ["Day1"]),
+		.library(name: "Day2", targets: ["Day2"]),
 		.library(name: "Types", targets: ["Types"]),
 		.library(name: "Utils", targets: ["Utils"]),
 	],
@@ -17,6 +18,14 @@ let package = Package(
 	targets: [
 		.target(
 			name: "Day1",
+			dependencies: [
+				"Types",
+				"Utils",
+				.product(name: "Parsing", package: "swift-parsing"),
+			]
+		),
+		.target(
+			name: "Day2",
 			dependencies: [
 				"Types",
 				"Utils",
@@ -39,6 +48,7 @@ let package = Package(
 			name: "advent-of-code-2022",
 			dependencies: [
 				"Day1",
+				"Day2",
 				"Types",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 				.product(name: "Parsing", package: "swift-parsing"),
