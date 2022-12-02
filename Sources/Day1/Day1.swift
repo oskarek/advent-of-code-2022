@@ -15,8 +15,6 @@ let calorieGroupsParser = Many {
 	calorieGroupParser
 } separator: {
 	"\n\n"
-} terminator: {
-	Whitespace()
 }
 
 // MARK: Solver

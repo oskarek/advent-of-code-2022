@@ -21,10 +21,10 @@
     {
       "identity" : "swift-parsing",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/swift-parsing",
+      "location" : "https://github.com/oskarek/swift-parsing",
       "state" : {
-        "revision" : "bc92e84968990b41640214b636667f35b6e5d44c",
-        "version" : "0.10.0"
+        "branch" : "aoc",
+        "revision" : "3a81af69cf1475971992aef6ebe5397e84ce6c7d"
       }
     },
     {

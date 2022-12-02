@@ -11,7 +11,7 @@ let package = Package(
 		.library(name: "Utils", targets: ["Utils"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.10.0"),
+		.package(url: "https://github.com/oskarek/swift-parsing", branch: "aoc"),
 		.package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
 	],
 	targets: [
@@ -31,7 +31,9 @@ let package = Package(
 		),
 		.target(
 			name: "Utils",
-			dependencies: []
+			dependencies: [
+				.product(name: "Parsing", package: "swift-parsing"),
+			]
 		),
 		.executableTarget(
 			name: "advent-of-code-2022",
