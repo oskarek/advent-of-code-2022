@@ -2,6 +2,7 @@ import ArgumentParser
 import Foundation
 import Day1
 import Day2
+import Day3
 import Types
 
 // MARK: Solvers
@@ -9,6 +10,7 @@ import Types
 let solvers: [Int: Solver] = [
 	1: Day1.solver,
 	2: Day2.solver,
+	3: Day3.solver,
 ]
 
 // MARK: - Custom error type
@@ -39,4 +41,4 @@ struct AdventOfCode: ParsableCommand {
 	}
 }
 
-AdventOfCode.main(["2"])
+AdventOfCode.main()
