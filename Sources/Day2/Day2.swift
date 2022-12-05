@@ -19,15 +19,10 @@ enum Outcome {
 
 // MARK: Parsers
 
-let play1Parser = OneOf {
-	"A".map { Play.rock }
-	"B".map { Play.paper }
-	"C".map { Play.scissor }
-}
-let play2Parser = OneOf {
-	"X".map { Play.rock }
-	"Y".map { Play.paper }
-	"Z".map { Play.scissor }
+let playParser = OneOf {
+	OneOf { "A"; "X" }.map { Play.rock }
+	OneOf { "B"; "Y" }.map { Play.paper }
+	OneOf { "C"; "Z" }.map { Play.scissor }
 }
 let outcomeParser = OneOf {
 	"X".map { Outcome.loss }
@@ -75,20 +70,18 @@ extension Play {
 	}
 }
 
-func points(for round: (Play, Play)) -> Int {
-	let (theirs, mine) = round
-	return mine.value + mine.outcomeAgainst(other: theirs).points
+func points(theirPlay: Play, myPlay: Play) -> Int {
+	myPlay.value + myPlay.outcomeAgainst(other: theirPlay).points
 }
 
-func points(for round: (Play, Outcome)) -> Int {
-	let (theirMove, desiredOutcome) = round
-	return theirMove.playForOutcome(desiredOutcome).value + desiredOutcome.points 
+func points(theirPlay: Play, desiredOutcome: Outcome) -> Int {
+	theirPlay.playForOutcome(desiredOutcome).value + desiredOutcome.points
 }
 
 
 public let solver = Solver(
-	parser1: LinesOf { play1Parser; " "; play2Parser },
-	solve1: { $0.map(points(for:)).sum },
-	parser2: LinesOf { play1Parser; " "; outcomeParser },
-	solve2: { $0.map(points(for:)).sum }
+	parser1: LinesOf { playParser; " "; playParser },
+	solve1: { $0.map(points).sum },
+	parser2: LinesOf { playParser; " "; outcomeParser },
+	solve2: { $0.map(points).sum }
 )

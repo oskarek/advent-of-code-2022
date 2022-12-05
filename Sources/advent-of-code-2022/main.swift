@@ -4,6 +4,7 @@ import Day1
 import Day2
 import Day3
 import Day4
+import Day5
 import Types
 
 // MARK: Solvers
@@ -13,6 +14,7 @@ let solvers: [Int: Solver] = [
 	2: Day2.solver,
 	3: Day3.solver,
 	4: Day4.solver,
+	5: Day5.solver,
 ]
 
 // MARK: - Custom error type
@@ -25,21 +27,24 @@ struct RuntimeError: Error, CustomStringConvertible {
 // MARK: - Main program
 
 struct AdventOfCode: ParsableCommand {
-	@Argument(help: "The day of the solution you want to print.")
-	var day: Int
+	@Argument(help: "The days you want to print the solution for.")
+	var days: [Int] = []
 
-	func run() throws {
-		guard let inputUrl = Bundle.module.url(forResource: "day\(day)", withExtension: "txt") else {
-			throw RuntimeError("Nu input file for day \(day) found.")
+	mutating func run() throws {
+		if days.isEmpty { solvers.keys.max().map { days.append($0) } }
+		for day in days {
+			guard let inputUrl = Bundle.module.url(forResource: "day\(day)", withExtension: "txt") else {
+				throw RuntimeError("Nu input file for day \(day) found.")
+			}
+			guard let solver = solvers[day] else {
+				throw RuntimeError("No solver implemented for day \(day).")
+			}
+			let input = try String(contentsOf: inputUrl)
+			let solution = try solver.printSolution(for: input)
+			print("Day \(day) solutions:")
+			print(solution)
+			print()
 		}
-		guard let solver = solvers[day] else {
-			throw RuntimeError("No solver implemented for day \(day).")
-		}
-		let input = try String(contentsOf: inputUrl)
-		let solution = try solver.printSolution(for: input)
-		print("Day \(day) solutions:")
-		print(solution)
-		print()
 	}
 }
 

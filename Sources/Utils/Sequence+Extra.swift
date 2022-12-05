@@ -23,3 +23,16 @@ public extension Array {
 		return [Self(self.prefix(size))] + Self(self.dropFirst(size)).groupsOf(size)
 	}
 }
+
+public extension Array {
+	/// Transpose the array, with the precondition that all rows of the array are of same length.
+	func transposed<E>() -> [[E]] where Element == [E] {
+		guard let firstCount = self.first?.count else { return [] }
+		guard self.allSatisfy({ $0.count == firstCount }) else {
+			fatalError("transposing malformed array")
+		}
+		return (0 ..< firstCount).map { x in
+			(0 ..< self.count).compactMap { self[$0][x] }
+		}
+	}
+}

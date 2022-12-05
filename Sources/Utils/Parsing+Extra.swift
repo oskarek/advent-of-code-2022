@@ -15,6 +15,8 @@ public struct LinesOf<Element: Parser>: Parser where Element.Input == Substring 
 			element
 		} separator: {
 			"\n"
+		} terminator: {
+			"\n"
 		}
 	}
 }
