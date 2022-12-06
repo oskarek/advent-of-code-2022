@@ -5,6 +5,7 @@ import Day2
 import Day3
 import Day4
 import Day5
+import Day6
 import Types
 
 // MARK: Solvers
@@ -15,6 +16,7 @@ let solvers: [Int: Solver] = [
 	3: Day3.solver,
 	4: Day4.solver,
 	5: Day5.solver,
+	6: Day6.solver,
 ]
 
 // MARK: - Custom error type
