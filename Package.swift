@@ -69,6 +69,14 @@ let package = Package(
 			]
 		),
 		.target(
+			name: "Day7",
+			dependencies: [
+				"Types",
+				"Utils",
+				.product(name: "Parsing", package: "swift-parsing"),
+			]
+		),
+		.target(
 			name: "Types",
 			dependencies: [
 				.product(name: "Parsing", package: "swift-parsing"),
@@ -89,6 +97,7 @@ let package = Package(
 				"Day4",
 				"Day5",
 				"Day6",
+				"Day7",
 				"Types",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 				.product(name: "Parsing", package: "swift-parsing"),

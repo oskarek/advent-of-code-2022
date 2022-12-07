@@ -36,3 +36,13 @@ public extension Array {
 		}
 	}
 }
+
+public extension Dictionary {
+	func mapWithKeys<NewValue>(_ transform: (Key, Value) -> NewValue) -> [Key: NewValue] {
+		var dict: [Key: NewValue] = [:]
+		for (key, value) in self {
+			dict[key] = transform(key, value)
+		}
+		return dict
+	}
+}
