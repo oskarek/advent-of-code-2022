@@ -5,6 +5,11 @@ public extension Sequence where Element: AdditiveArithmetic {
 	var sum: Element { reduce(.zero, +) }
 }
 
+public extension Sequence where Element: Numeric {
+	/// Get the product of all the elements in the sequence.
+	var product: Element { reduce(1, *) }
+}
+
 public extension Collection {
 	/// Combine all the elements of the collection into one, using the given combine closure.
 	func combine(_ combine: (Element, Element) throws -> Element) rethrows -> Element {
@@ -44,5 +49,16 @@ public extension Dictionary {
 			dict[key] = transform(key, value)
 		}
 		return dict
+	}
+}
+
+public extension Sequence {
+	/// Returns all elements up until, _and including_, the first one that matches the given predicate.
+	func prefix(untilIncluding predicate: (Element) -> Bool) -> [Element] {
+		var foundMatch = false
+		return self.prefix(while: { elem in
+			defer { if predicate(elem) { foundMatch = true } }
+			return !foundMatch
+		})
 	}
 }
