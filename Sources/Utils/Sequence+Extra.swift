@@ -62,3 +62,17 @@ public extension Sequence {
 		})
 	}
 }
+
+public extension Sequence {
+	/// Get every nth element of the sequence, starting with the first.
+	func every(n: Int) -> [Element] {
+		self.enumerated().filter { (idx, elem) in idx % n == 0 }.map(\.element)
+	}
+}
+
+public extension Sequence {
+	/// Like reduce, but returns a list containing the successive reduced values.
+	func scan(_ startValue: Element, _ combine: (Element, Element) -> Element) -> [Element] {
+		self.reduce(into: [startValue]) { $0.append(combine($0.last!, $1)) }
+	}
+}

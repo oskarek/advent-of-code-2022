@@ -7,12 +7,13 @@ My solutions to the problems from [Advent of Code
 
 ## Links to the solutions
 
-- [Day 1](Sources/Day1)
-- [Day 2](Sources/Day2)
-- [Day 3](Sources/Day3)
-- [Day 4](Sources/Day4)
-- [Day 5](Sources/Day5)
-- [Day 6](Sources/Day6)
-- [Day 7](Sources/Day7)
-- [Day 8](Sources/Day8)
-- [Day 9](Sources/Day9)
+- [Day 1](Sources/Day1/Day1.swift)
+- [Day 2](Sources/Day2/Day2.swift)
+- [Day 3](Sources/Day3/Day3.swift)
+- [Day 4](Sources/Day4/Day4.swift)
+- [Day 5](Sources/Day5/Day5.swift)
+- [Day 6](Sources/Day6/Day6.swift)
+- [Day 7](Sources/Day7/Day7.swift)
+- [Day 8](Sources/Day8/Day8.swift)
+- [Day 9](Sources/Day9/Day9.swift)
+- [Day 10](Sources/Day10/Day10.swift)
