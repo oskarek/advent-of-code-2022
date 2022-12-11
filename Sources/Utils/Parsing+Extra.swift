@@ -10,11 +10,11 @@ public struct LinesOf<Element: Parser>: Parser where Element.Input == Substring 
 		self.element = element()
 	}
 
-	public var body: some Parser<Substring, [Element.Output]> {
-		Many(count) {
+	public func parse(_ input: inout Element.Input) throws -> [Element.Output] {
+		try Many(count) {
 			element
 		} separator: {
 			"\n"
-		}
+		}.parse(&input)
 	}
 }

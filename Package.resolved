@@ -21,19 +21,10 @@
     {
       "identity" : "swift-parsing",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/oskarek/swift-parsing",
+      "location" : "https://github.com/pointfreeco/swift-parsing",
       "state" : {
-        "branch" : "aoc",
-        "revision" : "3a81af69cf1475971992aef6ebe5397e84ce6c7d"
-      }
-    },
-    {
-      "identity" : "xctest-dynamic-overlay",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
-      "state" : {
-        "revision" : "5a5457a744239896e9b0b03a8e1a5069c3e7b91f",
-        "version" : "0.6.0"
+        "revision" : "4bb9192468c1a8be57f46b7d6fd4f561c88b2195",
+        "version" : "0.11.0"
       }
     }
   ],

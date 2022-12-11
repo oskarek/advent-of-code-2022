@@ -16,12 +16,13 @@ let package = Package(
 		.library(name: "Day8", targets: ["Day8"]),
 		.library(name: "Day9", targets: ["Day9"]),
 		.library(name: "Day10", targets: ["Day10"]),
+		.library(name: "Day11", targets: ["Day11"]),
 		.library(name: "Day13", targets: ["Day13"]),
 		.library(name: "Types", targets: ["Types"]),
 		.library(name: "Utils", targets: ["Utils"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/oskarek/swift-parsing", branch: "aoc"),
+		.package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.11.0"),
 		.package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
 	],
 	targets: [
@@ -106,6 +107,14 @@ let package = Package(
 			]
 		),
 		.target(
+			name: "Day11",
+			dependencies: [
+				"Types",
+				"Utils",
+				.product(name: "Parsing", package: "swift-parsing"),
+			]
+		),
+		.target(
 			name: "Day13",
 			dependencies: [
 				"Types",
@@ -138,6 +147,7 @@ let package = Package(
 				"Day8",
 				"Day9",
 				"Day10",
+				"Day11",
 				"Day13",
 				"Types",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),

@@ -17,4 +17,5 @@ My solutions to the problems from [Advent of Code
 - [Day 8](Sources/Day8/Day8.swift)
 - [Day 9](Sources/Day9/Day9.swift)
 - [Day 10](Sources/Day10/Day10.swift)
+- [Day 11](Sources/Day11/Day11.swift)
 - [Day 13](Sources/Day13/Day13.swift)
