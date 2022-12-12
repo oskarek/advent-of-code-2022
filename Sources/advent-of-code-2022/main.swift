@@ -11,6 +11,7 @@ import Day8
 import Day9
 import Day10
 import Day11
+import Day12
 import Day13
 import Types
 
@@ -28,6 +29,7 @@ let solvers: [Int: Solver] = [
 	9: Day9.solver,
 	10: Day10.solver,
 	11: Day11.solver,
+	12: Day12.solver,
 	13: Day13.solver,
 ]
 
@@ -62,4 +64,4 @@ struct AdventOfCode: ParsableCommand {
 	}
 }
 
-AdventOfCode.main()
+AdventOfCode.main(["12"])
