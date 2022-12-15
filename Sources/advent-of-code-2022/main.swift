@@ -13,6 +13,7 @@ import Day10
 import Day11
 import Day12
 import Day13
+import Day14
 import Types
 
 // MARK: Solvers
@@ -31,6 +32,7 @@ let solvers: [Int: Solver] = [
 	11: Day11.solver,
 	12: Day12.solver,
 	13: Day13.solver,
+	14: Day14.solver,
 ]
 
 // MARK: - Custom error type
@@ -64,4 +66,4 @@ struct AdventOfCode: ParsableCommand {
 	}
 }
 
-AdventOfCode.main(["12"])
+AdventOfCode.main()
