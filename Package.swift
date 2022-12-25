@@ -20,6 +20,7 @@ let package = Package(
 		.library(name: "Day12", targets: ["Day12"]),
 		.library(name: "Day13", targets: ["Day13"]),
 		.library(name: "Day14", targets: ["Day14"]),
+		.library(name: "Day15", targets: ["Day15"]),
 		.library(name: "Types", targets: ["Types"]),
 		.library(name: "Utils", targets: ["Utils"]),
 	],
@@ -141,6 +142,14 @@ let package = Package(
 			]
 		),
 		.target(
+			name: "Day15",
+			dependencies: [
+				"Types",
+				"Utils",
+				.product(name: "Parsing", package: "swift-parsing"),
+			]
+		),
+		.target(
 			name: "Types",
 			dependencies: [
 				.product(name: "Parsing", package: "swift-parsing"),
@@ -169,6 +178,7 @@ let package = Package(
 				"Day12",
 				"Day13",
 				"Day14",
+				"Day15",
 				"Types",
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 				.product(name: "Parsing", package: "swift-parsing"),

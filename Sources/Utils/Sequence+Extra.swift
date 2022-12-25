@@ -76,3 +76,9 @@ public extension Sequence {
 		self.reduce(into: [startValue]) { $0.append(combine($0.last!, $1)) }
 	}
 }
+
+public extension ClosedRange where Bound == Int {
+	func shift(_ n: Int) -> Self {
+		return (self.lowerBound + n ... self.upperBound + n)
+	}
+}
